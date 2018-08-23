@@ -1,4 +1,8 @@
 #!/bin/bash
+#set bold and normal text variables
+bold=$(tput bold)
+normal=$(tput sgr0)
+
 #new hostname prefix
 hostnprefix="MissingLink-"
 
@@ -16,4 +20,4 @@ sudo sed -i "s/$hostn/$newhost/g" /etc/hosts
 sudo sed -i "s/$hostn/$newhost/g" /etc/hostname
 
 #display new hostname
-echo "Your new hostname is $newhost"
+echo "Your new hostname is ${bold}$newhost${normal}"
