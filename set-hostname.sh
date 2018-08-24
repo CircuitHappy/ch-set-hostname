@@ -20,4 +20,6 @@ sudo sed -i "s/$hostn/$newhost/g" /etc/hosts
 sudo sed -i "s/$hostn/$newhost/g" /etc/hostname
 
 #display new hostname
+echo "***********************************************"
 echo "Your new hostname is ${bold}$newhost${normal}"
+echo "***********************************************"
