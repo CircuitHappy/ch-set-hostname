@@ -16,8 +16,8 @@ echo "Existing hostname is $hostn"
 newhost=$hostnprefix$(cat /sys/class/net/wlan0/address | awk -F":" '{print $5$6}')
 
 #change hostname in /etc/hosts & /etc/hostname
-sudo sed -i "s/$hostn/$newhost/g" /etc/hosts
-sudo sed -i "s/$hostn/$newhost/g" /etc/hostname
+sed -i "s/$hostn/$newhost/g" /etc/hosts
+echo $newhost > /etc/hostname
 
 #display new hostname
 echo "***********************************************"
