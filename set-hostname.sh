@@ -9,9 +9,6 @@ hostnprefix="MissingLink-"
 #Assign existing hostname to $hostn
 hostn=$(cat /etc/hostname)
 
-#Display existing hostname
-echo "Existing hostname is $hostn"
-
 #New hostname is hostprefix + last four characters of MAC
 newhost=$hostnprefix$(cat /sys/class/net/wlan0/address | awk -F":" '{print $5$6}')
 
