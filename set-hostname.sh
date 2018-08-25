@@ -19,6 +19,9 @@ newhost=$hostnprefix$(cat /sys/class/net/wlan0/address | awk -F":" '{print $5$6}
 sed -i "s/$hostn/$newhost/g" /etc/hosts
 echo $newhost > /etc/hostname
 
+#update hostname right now
+hostname $newhost
+
 #display new hostname
 echo "***********************************************"
 echo "Your new hostname is ${bold}$newhost${normal}"
