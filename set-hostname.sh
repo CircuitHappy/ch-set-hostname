@@ -12,7 +12,7 @@ hostn=$(cat /etc/hostname)
 #Display existing hostname
 echo "Existing hostname is $hostn"
 
-#Ask for new hostname $newhost
+#New hostname is hostprefix + last four characters of MAC
 newhost=$hostnprefix$(cat /sys/class/net/wlan0/address | awk -F":" '{print $5$6}')
 
 #change hostname in /etc/hosts & /etc/hostname
