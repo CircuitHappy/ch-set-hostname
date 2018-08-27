@@ -1,7 +1,7 @@
 #!/bin/bash
 #set bold and normal text variables
-bold=$(tput bold)
-normal=$(tput sgr0)
+bold=$(/usr/bin/tput bold)
+normal=$(/usr/bin/tput sgr0)
 
 #new hostname prefix
 hostnprefix="MissingLink-"
@@ -10,16 +10,16 @@ hostnprefix="MissingLink-"
 hostn=$(cat /etc/hostname)
 
 #New hostname is hostprefix + last four characters of MAC
-newhost=$hostnprefix$(cat /sys/class/net/wlan0/address | awk -F":" '{print $5$6}')
+newhost=$hostnprefix$(/bin/cat /sys/class/net/wlan0/address | /usr/bin/awk -F":" '{/usr/bin/print $5$6}')
 
 #change hostname in /etc/hosts & /etc/hostname
-sed -i "s/$hostn/$newhost/g" /etc/hosts
-echo $newhost > /etc/hostname
+/bin/sed -i "s/$hostn/$newhost/g" /etc/hosts
+/bin/echo $newhost > /etc/hostname
 
 #update hostname right now
-hostname $newhost
+/bin/hostname $newhost
 
 #display new hostname
-echo "***********************************************"
-echo "Your new hostname is ${bold}$newhost${normal}"
-echo "***********************************************"
+/bin/echo "***********************************************"
+/bin/echo "Your new hostname is ${bold}$newhost${normal}"
+/bin/echo "***********************************************"
