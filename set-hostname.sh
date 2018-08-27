@@ -10,7 +10,7 @@ hostnprefix="MissingLink-"
 hostn=$(cat /etc/hostname)
 
 #New hostname is hostprefix + last four characters of MAC
-newhost=$hostnprefix$(/bin/cat /sys/class/net/wlan0/address | /usr/bin/awk -F":" '{/usr/bin/print $5$6}')
+newhost=$hostnprefix$(/bin/cat /sys/class/net/wlan0/address | /usr/bin/awk -F":" '{print $5$6}')
 
 #change hostname in /etc/hosts & /etc/hostname
 /bin/sed -i "s/$hostn/$newhost/g" /etc/hosts
