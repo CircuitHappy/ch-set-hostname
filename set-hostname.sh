@@ -1,8 +1,4 @@
 #!/bin/bash
-#set bold and normal text variables
-bold=$(/usr/bin/tput bold)
-normal=$(/usr/bin/tput sgr0)
-
 #new hostname prefix
 hostnprefix="MissingLink-"
 
@@ -21,5 +17,5 @@ newhost=$hostnprefix$(/bin/cat /sys/class/net/wlan0/address | /usr/bin/awk -F":"
 
 #display new hostname
 /bin/echo "***********************************************"
-/bin/echo "Your new hostname is ${bold}$newhost${normal}"
+/bin/echo "Your new hostname is $newhost"
 /bin/echo "***********************************************"
